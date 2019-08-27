@@ -14,3 +14,5 @@ readme_my
 *.pid
 
 app/secret_settings\.py
+
+venv/
