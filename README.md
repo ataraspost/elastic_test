@@ -1,4 +1,8 @@
 elastic
+
+https://habr.com/ru/post/327694/
+https://www.merixstudio.com/blog/elasticsearch-django-rest-framework/
+
 если падает контейнер то см 
 https://github.com/elastic/elasticsearch/issues/25067
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
