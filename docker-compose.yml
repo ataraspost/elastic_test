@@ -2,9 +2,16 @@ version: '3'
 services:
 
   elasticsearch:
-    image: elasticsearch:6.8.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.1
     volumes:
-      - ./data_elasticsearch:/usr/share/elasticsearch/data
+      - data:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - cluster.routing.allocation.disk.watermark.low=97%
+      - cluster.routing.allocation.disk.watermark.high=98%
+      - cluster.routing.allocation.disk.watermark.flood_stage=99%
 
   postgres:
     image: postgres
@@ -23,3 +30,5 @@ services:
     depends_on:
       - postgres
       - elasticsearch
+volumes:
+  data:
